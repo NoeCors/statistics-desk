@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Statistics Desk — Statistical consultancy for research</title>
+<meta name="description" content="Personalised statistical support for researchers, students, clinicians and professionals — from study design to interpreting results.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#100e0d;--paper:#fcfbf9;--cream:#f2eee8;--accent:#b31724;--accent2:#6d1220;--muted:#736c64;--rule:rgba(16,14,13,.11);--serif:'Lora',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',ui-monospace,monospace;--gutter:clamp(1.25rem,5vw,3.5rem);--p1:rgba(252,251,249,.66)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:clamp(15px,1.05vw,16px);line-height:1.65;overflow-x:hidden;text-wrap:pretty}
+img,svg{display:block;max-width:100%}
+a{color:var(--accent2)}a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400}
+i.acc{font-style:italic;color:var(--accent)}
+.wrap{max-width:1160px;margin-inline:auto;padding-inline:var(--gutter)}
+.sec{padding-block:clamp(4rem,8vw,6.5rem)}
+.kicker{display:flex;align-items:center;gap:.7rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 1rem}
+.kicker::before{content:"";display:block;width:1.6rem;height:1px;background:currentColor}
+.dark .lead{color:rgba(252,251,249,.6)}
+.dark .kicker{color:rgba(252,251,249,.36)}
+.h2{font-size:clamp(2rem,3.4vw,3.2rem);line-height:1.15;margin:0}
+.lead{font-size:.97rem;color:var(--muted);line-height:1.85;margin:0;max-width:420px}
+.head{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:3rem;align-items:end;margin-bottom:3.5rem}
+.btn{font-family:var(--sans);font-size:.76rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:.9rem 2.1rem;border:2px solid var(--ink);display:inline-block;transition:background .2s,border-color .2s,color .2s}
+.btn-dark{color:var(--paper);background:var(--ink)}.btn-dark:hover{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.btn-light{color:var(--paper);border-color:rgba(252,251,249,.3);font-weight:500}.btn-light:hover{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.btn-line{color:var(--ink);border-color:var(--rule);font-weight:500}.btn-line:hover{border-color:var(--ink);color:var(--ink)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:300;display:flex;align-items:center;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;padding:.95rem var(--gutter);background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
+.brand{font-family:var(--serif);font-size:clamp(1.35rem,2.4vw,1.85rem);font-weight:600;line-height:1;color:var(--ink);text-decoration:none;white-space:nowrap}
+.brand span,.brand-lg span{color:var(--accent)}
+.navlinks{display:flex;align-items:center;gap:clamp(1rem,2.2vw,2rem);flex-wrap:wrap}
+.navlinks a{font-size:.76rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;white-space:nowrap}
+.navlinks a:hover{color:var(--ink)}
+.navlinks a.cta{font-size:.74rem;font-weight:600;letter-spacing:.12em;color:var(--paper);background:var(--accent);padding:.68rem 1.6rem}
+.navlinks a.cta:hover{background:var(--accent2);color:var(--paper)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))}
+.hero-l{display:flex;flex-direction:column;justify-content:center;padding:clamp(3rem,6vw,6rem) clamp(2rem,4vw,4rem) clamp(3rem,6vw,6rem) var(--gutter);border-right:1px solid var(--rule)}
+.hero-l .kicker{margin-bottom:1.8rem}
+.hero h1{font-size:clamp(2.6rem,3.8vw,3.9rem);line-height:1.12;margin:0 0 1.6rem}
+.hero-l p.intro{font-size:clamp(.93rem,1.1vw,1rem);color:var(--muted);max-width:430px;line-height:1.82;margin:0 0 2.6rem}
+.actions{display:flex;gap:.85rem;flex-wrap:wrap}
+.stats{margin-top:2.4rem;padding-top:2rem;border-top:1px solid var(--rule);display:flex;gap:2.4rem;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:.18rem}
+.stat b{font-family:var(--serif);font-size:2rem;font-weight:400;line-height:1}
+.stat span{font-family:var(--mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.hero-r{background:var(--ink);display:flex;flex-direction:column;overflow:hidden;min-height:420px}
+.hero-r .top{padding:clamp(2.5rem,4vw,4rem) clamp(2rem,3.5vw,3.5rem) 2rem;border-bottom:1px solid rgba(252,251,249,.08)}
+.brand-lg{font-family:var(--serif);font-size:clamp(2.4rem,4.6vw,4.6rem);font-weight:500;line-height:.98;letter-spacing:-.01em;color:var(--paper);margin:0}
+.hero-r .sub{font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(252,251,249,.3);margin:1.1rem 0 0}
+.plot{flex:1;min-height:220px;position:relative}
+.plot svg{position:absolute;inset:0;width:100%;height:100%}
+.trend{animation:pulseline 3s ease-in-out infinite}
+@keyframes pulseline{0%,100%{opacity:.55}50%{opacity:.95}}
+
+/* marquee */
+.band{background:var(--accent);padding:.78rem 0;overflow:hidden}
+.track{display:flex;white-space:nowrap;animation:marquee 34s linear infinite;width:max-content}
+.track span{font-family:var(--mono);font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;color:var(--paper);opacity:.92;padding:0 2rem}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* services */
+.grid-svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.svc{padding:2rem 1.8rem 2.2rem;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);transition:background .2s}
+.svc:hover{background:var(--cream)}
+.num{font-family:var(--mono);font-size:.61rem;letter-spacing:.15em;color:var(--accent);margin:0 0 1rem}
+.svc h3{font-size:1.25rem;font-weight:500;line-height:1.3;margin:0 0 .55rem}
+.svc p:last-child{font-size:.86rem;color:var(--muted);line-height:1.72;margin:0}
+
+/* who */
+.who-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);column-gap:clamp(2.5rem,6vw,6rem);row-gap:2.4rem;align-items:center}
+.who-head{grid-column:1/-1}
+.who-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.who{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:1rem;padding:1.3rem 0;border-bottom:1px solid var(--rule)}
+.who .ico{font-size:1.1rem;line-height:1}
+.who h3{font-size:1.3rem;font-weight:400;margin:0}
+.tagline{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0;text-align:right}
+.who-quote{position:relative;padding:clamp(2.2rem,4vw,3.5rem);background:var(--paper);border:1px solid var(--rule)}
+.who-quote::before{content:"\201C";font-family:var(--serif);font-size:7rem;line-height:1;color:var(--accent);opacity:.17;position:absolute;top:.8rem;left:1.2rem}
+.who-quote blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,2vw,1.75rem);line-height:1.5;color:var(--ink);margin:0 0 1.4rem;position:relative}
+.who-quote .cite{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 2rem;padding-bottom:2rem;border-bottom:1px solid var(--rule)}
+.who-quote p{font-size:.95rem;color:var(--muted);line-height:1.8;margin:0 0 1rem}
+.who-quote p:last-child{margin:0}
+.who-quote strong{color:var(--ink);font-weight:500}
+@media (max-width:820px){.who-wrap{grid-template-columns:1fr}}
+@media (max-width:520px){.who{grid-template-columns:auto minmax(0,1fr)}.tagline{grid-column:2;text-align:left}}
+
+/* about */
+.dark{background:var(--ink);color:var(--paper)}
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(2.5rem,5vw,5.5rem);align-items:start}
+.portrait{position:relative;aspect-ratio:3/4;background:var(--cream);border:1px solid var(--rule);max-width:320px}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait::after{content:"";position:absolute;inset:7px;border:1.5px solid var(--accent);pointer-events:none}
+.creds{margin-top:1.6rem;display:flex;flex-direction:column;gap:.55rem}
+.creds span{font-family:var(--mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.55rem}
+.creds span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.about h2{font-size:clamp(1.9rem,3vw,3rem);line-height:1.15;color:var(--ink);margin:0 0 1.9rem}
+.about .body{display:flex;flex-direction:column;gap:1.05rem}
+.about .body p{font-size:.95rem;color:var(--muted);line-height:1.85;margin:0}
+.about .body strong{color:var(--ink);font-weight:500}
+
+/* cv */
+.cv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(2.5rem,5vw,5rem);align-items:start}
+.row{display:grid;grid-template-columns:5rem 1fr;gap:1.3rem;padding:1.4rem 0;border-bottom:1px solid var(--rule)}
+.row:first-child{border-top:1px solid var(--rule)}
+.row>span{font-family:var(--mono);font-size:.63rem;letter-spacing:.1em;color:var(--muted);padding-top:.22rem}
+.row h4{font-size:1.05rem;font-weight:500;margin:0 0 .18rem}
+.row div span{font-size:.82rem;color:var(--muted)}
+
+/* testimonials */
+.grid-t{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:2px;margin-top:2.8rem}
+figure{background:var(--paper);padding:2.2rem 2rem;margin:0;position:relative;transition:background .2s}
+figure:hover{background:#fff}
+figure::before{content:"\201C";font-family:var(--serif);font-size:5rem;line-height:1;color:var(--accent);opacity:.17;position:absolute;top:.9rem;left:1.5rem}
+blockquote{font-family:var(--serif);font-size:1.06rem;font-style:italic;line-height:1.68;margin:0 0 1.6rem;position:relative}
+figcaption strong{display:block;font-size:.84rem;font-weight:600}
+figcaption span{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* contact */
+.contact h2{font-size:clamp(1.9rem,3vw,3rem);line-height:1.15;color:var(--paper);margin:0}
+.contact .lead{color:rgba(252,251,249,.6);max-width:420px}
+.mail{display:flex;align-items:center;gap:1.2rem;background:var(--accent);border:1px solid var(--accent);padding:1.5rem 1.8rem;text-decoration:none;max-width:440px;transition:background .2s,transform .2s,box-shadow .2s;box-shadow:0 10px 30px rgba(179,23,36,.25)}
+.mail:hover{background:var(--accent2);border-color:var(--accent2);transform:translateY(-2px);box-shadow:0 14px 36px rgba(179,23,36,.35)}
+.mail .ic{width:44px;height:44px;flex-shrink:0;border:1px solid rgba(252,251,249,.45);display:flex;align-items:center;justify-content:center}
+.mail strong{display:block;font-size:1.05rem;font-weight:600;color:var(--paper)}
+.mail small{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:rgba(252,251,249,.85)}
+form{display:flex;flex-direction:column;gap:1.05rem;min-width:0}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:1rem}
+.f{display:flex;flex-direction:column;gap:.42rem}
+.f label{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(252,251,249,.45)}
+.f input,.f select,.f textarea{background:rgba(252,251,249,.05);border:1px solid rgba(252,251,249,.1);color:var(--paper);padding:.82rem 1.05rem;font-family:var(--sans);font-size:.9rem;outline:none;width:100%;border-radius:0}
+.f select{appearance:none}.f select option{color:var(--ink)}
+.f textarea{line-height:1.65;resize:vertical;min-height:105px}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:rgba(252,251,249,.4)}
+.f ::placeholder{color:rgba(252,251,249,.3)}
+.send{font-family:var(--sans);font-size:.76rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--paper);border:none;padding:.96rem 2.1rem;cursor:pointer;align-self:flex-start;transition:background .2s,color .2s}
+.send:hover{background:var(--accent);color:var(--paper)}
+.sent{font-size:.86rem;line-height:1.7;color:var(--p1);margin:0;display:none}
+
+.steps ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid rgba(252,251,249,.1);border-left:1px solid rgba(252,251,249,.1)}
+.steps li{display:flex;flex-direction:column;gap:.9rem;padding:1.6rem 1.4rem 1.8rem;border-right:1px solid rgba(252,251,249,.1);border-bottom:1px solid rgba(252,251,249,.1)}
+@media (max-width:1000px){.steps ol{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:680px){.steps ol{grid-template-columns:minmax(0,1fr)}}
+.steps .sn{font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;color:var(--accent)}
+.steps h3{font-size:1.2rem;font-weight:400;color:var(--paper);margin:0 0 .35rem}
+.steps p{font-size:.86rem;color:var(--p1);line-height:1.7;margin:0}
+footer{background:var(--ink);border-top:1px solid rgba(252,251,249,.07);padding:1.8rem var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+footer .fb{font-family:var(--serif);font-size:1.3rem;font-weight:500;color:rgba(252,251,249,.5)}
+footer .fb span{color:var(--accent)}
+footer small,footer a{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(252,251,249,.3);text-decoration:none}
+footer a:hover{color:rgba(252,251,249,.75)}
+footer .links{display:flex;gap:1.8rem}
+
+[data-fade]{transition:opacity .6s ease,transform .6s ease}
+[data-fade].pre{opacity:0;transform:translateY(18px)}
+
+@media (max-width:820px){
+  .about,.cv{grid-template-columns:1fr}
+  .hero-l{border-right:none}
+  .navlinks a:not(.cta){display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .track,.trend{animation:none}
+  [data-fade].pre{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#top" class="brand">The Statistics <span>Desk</span></a>
+  <div class="navlinks">
+    <a href="#offer">Services</a>
+    <a href="#who">Who I help</a>
+    <a href="#process">How it works</a>
+    <a href="#about">About me</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#contact" class="cta">Work with me</a>
+  </div>
+</nav>
+
+<section id="top" class="hero">
+  <div class="hero-l">
+    <p class="kicker">Statistical consultancy</p>
+    <h1>Statistical support<br>for your research<br><i class="acc">project</i></h1>
+    <p class="intro">I help researchers, students, and professionals make sense of their data. Whether you're designing a study or trying to figure out what your results actually mean, I'll walk you through it.</p>
+    <div class="actions">
+      <a href="#contact" class="btn btn-dark">Tell me about your project</a>
+      <a href="#offer" class="btn btn-line">Explore services</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>100%</b><span>Personalised work</span></div>
+      <div class="stat"><b>All</b><span>Research fields</span></div>
+      <div class="stat"><b>1:1</b><span>Direct collaboration</span></div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="top">
+      <p class="brand-lg">The Statistics <span>Desk</span></p>
+      <p class="sub">Statistical consultancy for research</p>
+    </div>
+    <div class="plot">
+      <svg viewBox="0 0 540 360" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="stroke-width:2px">
+        <line x1="52" y1="18" x2="52" y2="328" stroke="rgba(252,251,249,0.32)"/>
+        <line x1="52" y1="328" x2="500" y2="328" stroke="rgba(252,251,249,0.32)"/>
+        <g stroke="rgba(252,251,249,0.09)">
+          <line x1="52" y1="228" x2="500" y2="228"/><line x1="52" y1="128" x2="500" y2="128"/>
+          <line x1="162" y1="18" x2="162" y2="328"/><line x1="277" y1="18" x2="277" y2="328"/><line x1="392" y1="18" x2="392" y2="328"/>
+        </g>
+        <path d="M65,317 L496,92 L496,23 L65,248 Z" fill="rgba(179,23,36,0.13)"/>
+        <line class="trend" x1="65" y1="282" x2="496" y2="57" stroke="rgba(179,23,36,0.9)" stroke-width="2" stroke-dasharray="6 4"/>
+        <g fill="rgba(252,251,249,0.88)">
+          <circle cx="65" cy="258" r="3.4"/><circle cx="99" cy="322" r="3.1"/><circle cx="123" cy="208" r="3.7"/><circle cx="140" cy="262" r="3.2"/><circle cx="158" cy="161" r="3.5"/><circle cx="170" cy="267" r="3.1"/><circle cx="182" cy="207" r="3.7"/><circle cx="193" cy="162" r="3.2"/><circle cx="205" cy="278" r="3.4"/><circle cx="217" cy="174" r="3.1"/><circle cx="226" cy="208" r="3.7"/><circle cx="235" cy="131" r="3.2"/><circle cx="247" cy="232" r="3.5"/><circle cx="255" cy="164" r="3.1"/><circle cx="264" cy="257" r="3.7"/><circle cx="276" cy="134" r="3.2"/><circle cx="285" cy="193" r="3.4"/><circle cx="294" cy="96" r="3.1"/><circle cx="306" cy="212" r="3.7"/><circle cx="315" cy="143" r="3.2"/><circle cx="329" cy="209" r="3.5"/><circle cx="341" cy="105" r="3.1"/><circle cx="353" cy="148" r="3.7"/><circle cx="368" cy="67" r="3.2"/><circle cx="382" cy="152" r="3.4"/><circle cx="400" cy="85" r="3.1"/><circle cx="418" cy="173" r="3.7"/><circle cx="441" cy="44" r="3.2"/><circle cx="465" cy="105" r="3.5"/><circle cx="490" cy="39" r="3.1"/>
+        </g>
+        <text x="276" y="350" fill="rgba(252,251,249,0.6)" font-family="DM Mono, monospace" font-size="14" letter-spacing="1" text-anchor="middle">β̂ = (XᵀX)⁻¹Xᵀy</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true">
+  <div class="track" id="track">
+    <span>Regression analysis</span><span>Study design</span><span>Results interpretation</span><span>Data visualisation</span><span>Hypothesis testing</span><span>Network data</span><span>Clustering methods</span><span>Bayesian methods</span><span>Latent variable models</span><span>Survival analysis</span><span>SEM</span>
+  </div>
+</div>
+
+<section id="offer" class="sec">
+  <div class="wrap">
+    <div class="head" data-fade>
+      <div>
+        <p class="kicker">Services</p>
+        <h2 class="h2">What I can<br><i class="acc">help with.</i></h2>
+      </div>
+      <p class="lead">Every project is different, so I shape the work around your data and your question. I am with you from the first conversation to the final result, working alongside you the whole way.</p>
+    </div>
+    <div class="grid-svc">
+      <div class="svc" data-fade><p class="num">01</p><h3>Method selection</h3><p>Choosing the right method is often the hardest part. I will help you find approaches that fit your data and your design, and I explain why they hold up.</p></div>
+      <div class="svc" data-fade><p class="num">02</p><h3>Data analysis &amp; modelling</h3><p>From descriptive statistics to regression, network analysis, clustering and latent variable models, I can run the analysis or guide you through it. Either way, it is transparent and reproducible.</p></div>
+      <div class="svc" data-fade><p class="num">03</p><h3>Study &amp; survey design</h3><p>A strong analysis starts with a strong design. Let's plan your study, sample size and data collection together, before anything is gathered.</p></div>
+      <div class="svc" data-fade><p class="num">04</p><h3>Results interpretation</h3><p>A model's output isn't a conclusion. I'll help you understand what your results mean in context, and just as importantly, why they don't.</p></div>
+      <div class="svc" data-fade><p class="num">05</p><h3>Methodology review</h3><p>Already have an analysis? I'll review your statistical choices, point out any weak spots and suggest way to strengthen them.</p></div>
+      <div class="svc" data-fade><p class="num">06</p><h3>Teaching &amp; tutoring</h3><p>Statistics is rarely hard because you're bad at it, but because it was explained badly. Exam next week or thesis chapter you keep putting off, we'll start from the idea and work through it at your pace, in line with your course.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="who" class="sec" style="background:var(--cream)">
+  <div class="wrap who-wrap">
+    <div class="who-head">
+      <p class="kicker" data-fade>Who I help</p>
+      <h2 class="h2" data-fade>Who I <i class="acc">work with.</i></h2>
+    </div>
+      <ul class="who-list">
+        <li class="who" data-fade><span class="ico">🎓</span><h3>Academic researchers</h3><p class="tagline">Academia</p></li>
+        <li class="who" data-fade><span class="ico">📖</span><h3>PhD &amp; master's students</h3><p class="tagline">Graduate education</p></li>
+        <li class="who" data-fade><span class="ico">🏥</span><h3>Doctors &amp; clinical researchers</h3><p class="tagline">Clinical &amp; medical</p></li>
+        <li class="who" data-fade><span class="ico">🧠</span><h3>Social scientists</h3><p class="tagline">Social &amp; behavioural sciences</p></li>
+        <li class="who" data-fade><span class="ico">💼</span><h3>Professionals &amp; companies</h3><p class="tagline">Private sector</p></li>
+        <li class="who" data-fade><span class="ico">🔬</span><h3>Researchers using statistics</h3><p class="tagline">Every other field</p></li>
+      </ul>
+    <aside class="who-quote" data-fade>
+      <blockquote>“I know what I want to find out. I just don't know how to analyse the data to get there.”</blockquote>
+      <p class="cite">— The researchers I work with</p>
+      <p style="width:414px;height:82px">My clients come from academia, medicine and industry. What they share is a good research question and the wish to answer it properly.</p>
+      <p style="width:406px;height:79px"><strong>You don't need to become a statistician.</strong> You just need to work with one who understands research and explains things clearly.</p>
+    </aside>
+  </div>
+</section>
+
+<section id="process" class="sec dark">
+  <div class="wrap">
+    <div class="head" data-fade>
+      <div>
+        <p class="kicker">How it works</p>
+        <h2 class="h2">From first message<br>to <i class="acc">final results.</i></h2>
+      </div>
+      <p class="lead">A clear process, so you always know where we are and what comes next.</p>
+    </div>
+    <div class="steps" data-fade>
+      <ol>
+        <li><span class="sn">01</span><div><h3>You get in touch</h3><p>Send me a few lines about your project: your data, your research question, and where you are stuck. You don't need statistical terms, just describe what you are trying to find out.</p></div></li>
+        <li><span class="sn">02</span><div><h3>We frame the problem</h3><p>Together we work out what you are actually trying to answer. Once the question is clear, I send you a timeline and a quote, so you know what to expect before we begin.</p></div></li>
+        <li><span class="sn">03</span><div><h3>I propose an approach</h3><p>I outline the methods I would recommend, explain why, and talk through the trade-offs. There is rarely one right answer, so I tell you what I would do and explain my reasoning.</p></div></li>
+        <li><span class="sn">04</span><div><h3>Analysis and delivery</h3><p>I run the analysis or guide you through it, whichever you prefer. You get results along with explanations.</p></div></li>
+        <li><span class="sn">05</span><div><h3>Review and refinement</h3><p>Research rarely moves in a straight line. If the results open new questions, we go back and refine the analysis. We finish when you understand your results and can stand behind them.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="sec">
+  <div class="wrap about">
+    <div data-fade>
+      <div class="portrait" style="width:259px;height:277px"><img id="portrait-img" src="assets/portrait.jpg" alt="Portrait" onerror="this.remove()"></div>
+      <div class="creds" style="width:354px;height:101px">
+        <span>PHD IN STATISTICS</span>
+        <span>BSC &amp; MSC IN STATISTICS</span>
+        <span>EXPERTISE IN COMPLEX DATA</span>
+        <span>WORKED ACROSS VARIOUS FIELDS AND BACKGROUNDS</span>
+      </div>
+      <a href="#" id="personal-link" class="btn btn-dark" target="_blank" rel="noopener" style="margin-top:2rem">Visit my personal page →</a>
+    </div>
+    <div>
+      <p class="kicker" data-fade>About me</p>
+      <h2 data-fade>My work sits at the intersection<br>of methodology and <i class="acc">the research it serves.</i></h2>
+      <div class="body" data-fade style="width:577px;height:299px">
+        <p style="font-weight:400;width:581px;height:124px">I am a statistical consultant specialised in academic and applied research sitting at the intersection of quantitative methodology and applications. In particular, my own research focuses on network analysis, Bayesian inference and latent variable models, and my consultancy work is shaped by the question each client brings.</p>
+        <p style="width:585px;height:109px">I've collaborated with researchers in statistics, criminology economy and social science, turning real data and important questions into clear analyses that can be understood, defended and explained. What matters to me is choosing models that can be justified, being explicit about the assumptions, and honest about the limits.</p>
+        <p style="width:511px;height:48px">You'll work with me directly, from our first conversation to the final result.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="sec" style="background:var(--cream)">
+  <div class="wrap">
+    <p class="kicker" data-fade>Reviews</p>
+    <h2 class="h2" data-fade>What students and clients<br>have <i class="acc">said.</i></h2>
+    <div class="grid-t">
+      <figure data-fade><blockquote>My PhD project is conceptually quite complex and her ability to pick up the conceptual underpinning of the research on demand and apply it to relevant statistics has been very impressive.</blockquote></figure>
+      <figure data-fade><blockquote>Her level of skill in her field is amazing but it's her ability to translate complex content into easily translatable, bite-size pieces has made her teaching invaluable to my learning.</blockquote><figcaption></figcaption></figure>
+      <figure data-fade><blockquote>She is a very competent, patient, and helpful person, able to explain complex concepts clearly and understandably. She made me rediscover statistics and made me like it.</blockquote><figcaption></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="sec dark">
+  <div class="wrap contact">
+    <div class="head" style="margin-bottom:0;align-items:start">
+      <div>
+        <p class="kicker" data-fade>Get in touch</p>
+        <h2 data-fade>Let's talk about<br>your <i class="acc">research problem.</i></h2>
+      </div>
+      <div>
+        <p class="lead" data-fade style="margin-bottom:2.2rem">Let's start with a chat! Tell me what you are working on, even if you can't yet put the statistical problem into words. That's exactly where I can help!</p>
+        <a class="mail" data-fade href="mailto:hello@thestatisticsdesk.com">
+        <span class="ic"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#fcfbf9" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg></span>
+        <span><strong>Send me an email →</strong></span>
+      </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="fb">The Statistics <span>Desk</span></span>
+  <small>© <span id="yr">2026</span> The Statistics Desk — statistical consultancy</small>
+  <span class="links"><a href="#" id="linkedin-link" target="_blank" rel="noopener">LinkedIn</a><a class="email-link" href="mailto:hello@thestatisticsdesk.com">Email</a></span>
+</footer>
+
+<script>
+  // ===== EDIT YOUR DETAILS HERE — they update the whole page =====
+  const EMAIL         = 'hello@thestatisticsdesk.com';   // your email address
+  const PERSONAL_PAGE = '#';                             // e.g. 'https://yourname.github.io'
+  const LINKEDIN      = '#';                             // e.g. 'https://www.linkedin.com/in/yourname'
+  const PHOTO         = 'assets/portrait.jpg';           // put your photo in the assets folder with this name
+  // ================================================================
+  document.getElementById('personal-link').href = PERSONAL_PAGE;
+  document.getElementById('linkedin-link').href = LINKEDIN;
+  const img = document.getElementById('portrait-img'); if (img) img.src = PHOTO;
+  document.querySelectorAll('.mail, .email-link').forEach(a => a.href = 'mailto:' + EMAIL);
+  document.querySelectorAll('.email-text').forEach(s => s.textContent = EMAIL);
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const track = document.getElementById('track');
+  track.innerHTML += track.innerHTML;
+
+  
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const els = [...document.querySelectorAll('[data-fade]')];
+    els.forEach((el, i) => { el.classList.add('pre'); el.style.transitionDelay = (i % 5) * 0.07 + 's'; });
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.remove('pre'); io.unobserve(e.target); }
+    }), { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    els.forEach(el => io.observe(el));
+  }
+</script>
+</body>
+</html>
