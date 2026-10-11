@@ -99,6 +99,14 @@ nav{position:sticky;top:0;z-index:300;display:flex;align-items:center;justify-co
 .about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);grid-template-rows:auto auto 1fr;grid-template-areas:"photo text" "creds text" "btn text";column-gap:clamp(2.5rem,5vw,5.5rem);align-items:start}
 .a-text{grid-area:text}.a-photo{grid-area:photo}.a-creds{grid-area:creds}.a-btn{grid-area:btn;margin-top:2rem}
 [id]{scroll-margin-top:72px}
+/* About me without photo */
+.about:not(:has(.a-photo)){grid-template-columns:minmax(0,2fr) minmax(0,1fr);grid-template-rows:auto auto 1fr;grid-template-areas:"text creds" "text btn" "text .";align-items:start}
+.about:not(:has(.a-photo)) .a-creds{margin-top:5.4rem;padding-top:1.4rem;border-top:1px solid var(--rule)}
+.about:not(:has(.a-photo)) .a-creds .creds{width:auto!important;height:auto!important}
+@media (max-width:820px){
+  .about:not(:has(.a-photo)){grid-template-columns:1fr;grid-template-areas:"text" "creds" "btn"}
+  .about:not(:has(.a-photo)) .a-creds{margin-top:0}
+}
 .portrait{position:relative;aspect-ratio:3/4;background:var(--cream);border:1px solid var(--rule);max-width:320px}
 .portrait img{width:100%;height:100%;object-fit:cover}
 .portrait::after{content:"";position:absolute;inset:7px;border:1.5px solid var(--accent);pointer-events:none}
